@@ -1,0 +1,33 @@
+<% content_for :title, "Clients" %>
+
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-3xl">Clientes</h1>
+  </div>
+
+  <%= render_grid(
+    @clients,
+    {
+      nome: { label: 'Nome' },
+      apelido: { label: 'Apelido' },
+      fone1: { label: 'Telefone' },
+      celular: { label: 'Celular' },
+      cidade: { label: 'Cidade' },
+      status: { 
+        label: 'Status',
+        format: ->(status) { status == "ativo" ? "Ativo" : "Inativo" }
+      },
+    },
+    {
+      new_button: true,
+      edit_button: true,
+      delete_button: true,
+      search: true,
+      per_page: 20
+    }
+  ) %>
+</div>
