@@ -55,7 +55,12 @@
         <div class="flex flex-col gap-6 xl:flex-row">
           <div class="w-full xl:w-1/2">
             <%= form.label :cpf, class: "mb-2.5 block text-black dark:text-white" %>
-            <%= form.text_field :cpf, class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary", data: { mask_target: "input" } %>
+            <%= form.text_field :cpf, 
+                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary",
+                data: { 
+                  mask_target: "cpf",
+                  action: "input->mask#cpf"
+                } %>
           </div>
 
           <div class="w-full xl:w-1/2">
@@ -67,7 +72,12 @@
         <div class="flex flex-col gap-6 xl:flex-row mt-4.5">
           <div class="w-full xl:w-1/2">
             <%= form.label :cnpj, class: "mb-2.5 block text-black dark:text-white" %>
-            <%= form.text_field :cnpj, class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary", data: { mask_target: "input" } %>
+            <%= form.text_field :cnpj, 
+                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary",
+                data: { 
+                  mask_target: "cnpj",
+                  action: "input->mask#cnpj"
+                } %>
           </div>
 
           <div class="w-full xl:w-1/2">
@@ -95,26 +105,135 @@
 
           <div class="w-full xl:w-1/2">
             <%= form.label :cep, class: "mb-2.5 block text-black dark:text-white" %>
-            <%= form.text_field :cep, class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary", data: { mask_target: "input" } %>
+            <%= form.text_field :cep, 
+                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary",
+                data: { 
+                  mask_target: "cep",
+                  action: "input->mask#cep"
+                } %>
           </div>
         </div>
 
         <div class="flex flex-col gap-6 xl:flex-row mt-4.5">
+          <div class="w-full xl:w-1/4">
+            <%= form.label :uf, "Estado", class: "mb-2.5 block text-black dark:text-white" %>
+            <%= form.select :uf, 
+                City.estados, 
+                { prompt: "Selecione o Estado" }, 
+                { 
+                  class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary", 
+                  id: "estado-select" 
+                } 
+            %>
+          </div>
+
           <div class="w-full xl:w-1/2">
-            <%= form.label :cidade, class: "mb-2.5 block text-black dark:text-white" %>
-            <%= form.text_field :cidade, class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" %>
+            <%= form.label :cidade, "Cidade", class: "mb-2.5 block text-black dark:text-white" %>
+            <%= form.select :cidade, 
+                [], 
+                { prompt: "Primeiro selecione o Estado" }, 
+                { 
+                  class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary", 
+                  id: "cidade-select", 
+                  disabled: true 
+                } 
+            %>
           </div>
 
           <div class="w-full xl:w-1/4">
-            <%= form.label :uf, class: "mb-2.5 block text-black dark:text-white" %>
-            <%= form.text_field :uf, class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" %>
-          </div>
-
-          <div class="w-full xl:w-1/4">
-            <%= form.label :ibge, class: "mb-2.5 block text-black dark:text-white" %>
-            <%= form.text_field :ibge, class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" %>
+            <%= form.label :ibge, "Código IBGE", class: "mb-2.5 block text-black dark:text-white" %>
+            <%= form.text_field :ibge, 
+                { 
+                  class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary", 
+                  id: "ibge-input", 
+                  readonly: true 
+                } 
+            %>
           </div>
         </div>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const estadoSelect = document.getElementById('estado-select');
+            const cidadeSelect = document.getElementById('cidade-select');
+            const IbgeInput = document.getElementById('ibge-input');
+
+            // Função para carregar municípios do estado
+            function carregarMunicipios(uf) {
+              fetch(`/cities/ajax/municipios?uf=${uf}`)
+                .then(response => response.json())
+                .then(municipios => {
+                  cidadeSelect.innerHTML = '<option value="">Selecione a Cidade</option>';
+                  municipios.forEach(municipio => {
+                    const option = document.createElement('option');
+                    option.value = municipio;
+                    option.textContent = municipio;
+                    cidadeSelect.appendChild(option);
+                  });
+                  cidadeSelect.disabled = false;
+
+                  // Se estiver editando, seleciona a cidade atual
+                  const cidadeAtual = '<%= @client.cidade %>';
+                  if (cidadeAtual) {
+                    cidadeSelect.value = cidadeAtual;
+                    cidadeSelect.dispatchEvent(new Event('change'));
+                  }
+                })
+                .catch(error => {
+                  console.error('Erro ao carregar municípios:', error);
+                  cidadeSelect.innerHTML = '<option value="">Erro ao carregar</option>';
+                });
+            }
+
+            // Se já tiver um estado selecionado (edição), carrega municípios
+            const ufAtual = '<%= @client.uf %>';
+            if (ufAtual) {
+              estadoSelect.value = ufAtual;
+              carregarMunicipios(ufAtual);
+            }
+
+            estadoSelect.addEventListener('change', function() {
+              const selectedUf = this.value;
+              
+              if (selectedUf) {
+                carregarMunicipios(selectedUf);
+              } else {
+                cidadeSelect.innerHTML = '<option value="">Primeiro selecione o Estado</option>';
+                cidadeSelect.disabled = true;
+              }
+            });
+
+            cidadeSelect.addEventListener('change', function() {
+              const selectedUf = estadoSelect.value;
+              const selectedCidade = this.value;
+              
+              if (selectedUf && selectedCidade) {
+                fetch(`/cities/ajax/detalhes_municipio?uf=${selectedUf}&cidade=${selectedCidade}`)
+                  .then(response => response.json())
+                  .then(detalhes => {
+                    if (detalhes && detalhes.codigo_ibge) {
+                      IbgeInput.value = detalhes.codigo_ibge;
+                    } else {
+                      IbgeInput.value = 'Não encontrado';
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Erro ao buscar detalhes do município:', error);
+                    IbgeInput.value = 'Erro ao carregar';
+                  });
+              } else {
+                IbgeInput.value = '';
+              }
+            });
+
+            // Preenche o código IBGE se já existir na edição
+            const IbgeAtual = '<%= @client.ibge %>';
+            if (IbgeAtual) {
+              IbgeInput.value = IbgeAtual;
+            }
+          });
+        </script>
+
       </div>
 
       <!-- Contato -->
@@ -125,17 +244,32 @@
         <div class="flex flex-col gap-6 xl:flex-row">
           <div class="w-full xl:w-1/3">
             <%= form.label :fone1, class: "mb-2.5 block text-black dark:text-white" %>
-            <%= form.text_field :fone1, class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary", data: { mask_target: "input" } %>
+            <%= form.text_field :fone1, 
+                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary",
+                data: { 
+                  mask_target: "telefone",
+                  action: "input->mask#telefone"
+                } %>
           </div>
 
           <div class="w-full xl:w-1/3">
             <%= form.label :fone2, class: "mb-2.5 block text-black dark:text-white" %>
-            <%= form.text_field :fone2, class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary", data: { mask_target: "input" } %>
+            <%= form.text_field :fone2, 
+                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary",
+                data: { 
+                  mask_target: "telefone",
+                  action: "input->mask#telefone"
+                } %>
           </div>
 
           <div class="w-full xl:w-1/3">
             <%= form.label :celular, class: "mb-2.5 block text-black dark:text-white" %>
-            <%= form.text_field :celular, class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary", data: { mask_target: "input" } %>
+            <%= form.text_field :celular, 
+                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary",
+                data: { 
+                  mask_target: "telefone",
+                  action: "input->mask#telefone"
+                } %>
           </div>
         </div>
 

@@ -1,0 +1,149 @@
+<div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+  <!-- Card 1 -->
+  <div class="flex items-center p-4 bg-white rounded-lg shadow-xs">
+    <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full">
+      <i class="fas fa-users fa-lg"></i>
+    </div>
+    <div>
+      <p class="mb-2 text-sm font-medium text-gray-600">
+        Total de Clientes
+      </p>
+      <p class="text-lg font-semibold text-gray-700">
+        6389
+      </p>
+    </div>
+  </div>
+  
+  <!-- Card 2 -->
+  <div class="flex items-center p-4 bg-white rounded-lg shadow-xs">
+    <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full">
+      <i class="fas fa-truck fa-lg"></i>
+    </div>
+    <div>
+      <p class="mb-2 text-sm font-medium text-gray-600">
+        Coletas Hoje
+      </p>
+      <p class="text-lg font-semibold text-gray-700">
+        46
+      </p>
+    </div>
+  </div>
+  
+  <!-- Card 3 -->
+  <div class="flex items-center p-4 bg-white rounded-lg shadow-xs">
+    <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full">
+      <i class="fas fa-calendar-check fa-lg"></i>
+    </div>
+    <div>
+      <p class="mb-2 text-sm font-medium text-gray-600">
+        Coletas Pendentes
+      </p>
+      <p class="text-lg font-semibold text-gray-700">
+        12
+      </p>
+    </div>
+  </div>
+  
+  <!-- Card 4 -->
+  <div class="flex items-center p-4 bg-white rounded-lg shadow-xs">
+    <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full">
+      <i class="fas fa-check-circle fa-lg"></i>
+    </div>
+    <div>
+      <p class="mb-2 text-sm font-medium text-gray-600">
+        Taxa de Sucesso
+      </p>
+      <p class="text-lg font-semibold text-gray-700">
+        98.9%
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Gráficos -->
+<div class="grid gap-6 mb-8 md:grid-cols-2">
+  <!-- Gráfico 1 -->
+  <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs">
+    <h4 class="mb-4 font-semibold text-gray-800">
+      Coletas por Mês
+    </h4>
+    <div class="h-64 bg-gray-50 rounded p-4">
+      <div class="flex items-center justify-center h-full text-gray-400">
+        <i class="fas fa-chart-bar fa-3x"></i>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Gráfico 2 -->
+  <div class="min-w-0 p-4 bg-white rounded-lg shadow-xs">
+    <h4 class="mb-4 font-semibold text-gray-800">
+      Distribuição por Região
+    </h4>
+    <div class="h-64 bg-gray-50 rounded p-4">
+      <div class="flex items-center justify-center h-full text-gray-400">
+        <i class="fas fa-chart-pie fa-3x"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tabela de Últimas Atividades -->
+<div class="w-full overflow-hidden rounded-lg shadow-xs">
+  <div class="w-full overflow-x-auto">
+    <table class="w-full whitespace-no-wrap">
+      <thead>
+        <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b bg-gray-50">
+          <th class="px-4 py-3">Cliente</th>
+          <th class="px-4 py-3">Tipo</th>
+          <th class="px-4 py-3">Status</th>
+          <th class="px-4 py-3">Data</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y">
+        <tr class="text-gray-700">
+          <td class="px-4 py-3">
+            <div class="flex items-center text-sm">
+              <div>
+                <p class="font-semibold">Empresa ABC</p>
+                <p class="text-xs text-gray-600">São Paulo, SP</p>
+              </div>
+            </div>
+          </td>
+          <td class="px-4 py-3 text-sm">
+            Coleta Regular
+          </td>
+          <td class="px-4 py-3 text-xs">
+            <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full">
+              Concluído
+            </span>
+          </td>
+          <td class="px-4 py-3 text-sm">
+            10/02/2025
+          </td>
+        </tr>
+        
+        <tr class="text-gray-700">
+          <td class="px-4 py-3">
+            <div class="flex items-center text-sm">
+              <div>
+                <p class="font-semibold">Empresa XYZ</p>
+                <p class="text-xs text-gray-600">Rio de Janeiro, RJ</p>
+              </div>
+            </div>
+          </td>
+          <td class="px-4 py-3 text-sm">
+            Coleta Urgente
+          </td>
+          <td class="px-4 py-3 text-xs">
+            <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full">
+              Em Andamento
+            </span>
+          </td>
+          <td class="px-4 py-3 text-sm">
+            10/02/2025
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

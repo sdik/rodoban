@@ -2,9 +2,9 @@ module GridHelper
   def render_grid(records, columns, options = {})
     options = {
       title: '',
-      new_button: true,
-      edit_button: true,
-      delete_button: true,
+      new_button: false,
+      edit_button: false,
+      delete_button: false,
       search: true,
       per_page: 10
     }.merge(options)

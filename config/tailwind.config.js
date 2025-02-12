@@ -5,7 +5,8 @@ module.exports = {
     './public/*.html',
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
-    './app/views/**/*.{erb,haml,html,slim}'
+    './app/views/**/*.{erb,haml,html,slim}',
+    './node_modules/flowbite/**/*.js'
   ],
   darkMode: 'class',
   theme: {
@@ -194,24 +195,23 @@ module.exports = {
         6: '6px',
       },
       boxShadow: {
-        default: '0px 8px 13px -3px rgba(0, 0, 0, 0.07)',
-        card: '0px 1px 3px rgba(0, 0, 0, 0.12)',
-        'card-2': '0px 1px 2px rgba(0, 0, 0, 0.05)',
-        switcher:
-          '0px 2px 4px rgba(0, 0, 0, 0.2), inset 0px 2px 2px #FFFFFF, inset 0px -1px 1px rgba(0, 0, 0, 0.1)',
-        'switch-1': '0px 0px 5px rgba(0, 0, 0, 0.15)',
-        1: '0px 1px 3px rgba(0, 0, 0, 0.08)',
+        default: '0px 1px 3px rgba(0, 0, 0, 0.08)',
+        1: '0px 1px 0px #E2E8F0',
         2: '0px 1px 4px rgba(0, 0, 0, 0.12)',
-        3: '0px 1px 5px rgba(0, 0, 0, 0.14)',
-        4: '0px 4px 10px rgba(0, 0, 0, 0.12)',
-        5: '0px 1px 1px rgba(0, 0, 0, 0.15)',
-        6: '0px 3px 15px rgba(0, 0, 0, 0.1)',
-        7: '-5px 0 0 #313D4A, 5px 0 0 #313D4A',
-        8: '1px 0 0 #313D4A, -1px 0 0 #313D4A, 0 1px 0 #313D4A, 0 -1px 0 #313D4A, 0 3px 13px rgb(0 0 0 / 8%)',
       },
       dropShadow: {
         1: '0px 1px 0px #E2E8F0',
         2: '0px 1px 4px rgba(0, 0, 0, 0.12)',
+      },
+      keyframes: {
+        'slide-in': {
+          '0%': { transform: 'translateX(100%)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' }
+        },
+        'fade-out': {
+          '0%': { transform: 'translateX(0)', opacity: '1' },
+          '100%': { transform: 'translateX(100%)', opacity: '0' }
+        }
       },
       screens: {
         '2xsm': '375px',
@@ -229,7 +229,12 @@ module.exports = {
         'title-sm': ['20px', '26px'],
         'title-xsm': ['18px', '24px'],
       },
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }

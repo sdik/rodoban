@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_21_223158) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_11_170520) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.integer "codigo_ibge"
+    t.string "cidade"
+    t.string "uf"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string "nome"
@@ -36,6 +44,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_21_223158) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 1, null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "nome"
+    t.string "abreviado"
+    t.string "funcao"
+    t.string "telefone"
+    t.date "admissao"
+    t.string "senha"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  abreviado: MyString
+  funcao: MyString
+  telefone: MyString
+  admissao: 2025-02-11
+  senha: MyString
+
+two:
+  nome: MyString
+  abreviado: MyString
+  funcao: MyString
+  telefone: MyString
+  admissao: 2025-02-11
+  senha: MyString

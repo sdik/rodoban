@@ -1,0 +1,47 @@
+<%= form_with(model: employee, class: "contents") do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul class="list-disc ml-6">
+        <% employee.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, class: ["block shadow rounded-md border outline-none px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": employee.errors[:nome].none?, "border-red-400 focus:outline-red-600": employee.errors[:nome].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :abreviado %>
+    <%= form.text_field :abreviado, class: ["block shadow rounded-md border outline-none px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": employee.errors[:abreviado].none?, "border-red-400 focus:outline-red-600": employee.errors[:abreviado].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :funcao %>
+    <%= form.text_field :funcao, class: ["block shadow rounded-md border outline-none px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": employee.errors[:funcao].none?, "border-red-400 focus:outline-red-600": employee.errors[:funcao].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :telefone %>
+    <%= form.text_field :telefone, class: ["block shadow rounded-md border outline-none px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": employee.errors[:telefone].none?, "border-red-400 focus:outline-red-600": employee.errors[:telefone].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :admissao %>
+    <%= form.date_field :admissao, class: ["block shadow rounded-md border outline-none px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": employee.errors[:admissao].none?, "border-red-400 focus:outline-red-600": employee.errors[:admissao].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :senha %>
+    <%= form.text_field :senha, class: ["block shadow rounded-md border outline-none px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": employee.errors[:senha].none?, "border-red-400 focus:outline-red-600": employee.errors[:senha].any?}] %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

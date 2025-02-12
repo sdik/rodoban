@@ -1,0 +1,52 @@
+<div id="deleteModal-<%= record.id %>" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full flex items-center justify-center">
+    <div class="relative w-auto max-w-md">
+        <!-- Background overlay -->
+        <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity"></div>
+        
+        <!-- Modal content -->
+        <div class="relative bg-white dark:bg-boxdark rounded-lg shadow-default">
+            <!-- Close button -->
+            <button type="button" 
+                class="absolute top-4 right-4 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 rounded-lg p-1.5 ml-auto inline-flex items-center" 
+                data-modal-hide="deleteModal-<%= record.id %>">
+                <i class="fas fa-times text-lg"></i>
+                <span class="sr-only">Fechar</span>
+            </button>
+
+            <!-- Modal body -->
+            <div class="p-8 text-center bg-gray-2 dark:bg-boxdark">
+                <!-- Warning icon -->
+                <div class="mb-8">
+                    <i class="fas fa-exclamation-triangle text-4xl text-danger"></i>
+                </div>
+
+                <!-- Title -->
+                <h3 class="mb-6 text-xl font-semibold text-black dark:text-white">
+                    Confirmar Exclusão
+                </h3>
+
+                <!-- Message -->
+                <p class="mb-8 text-base text-body dark:text-bodydark">
+                    Tem certeza que deseja excluir este item? Esta ação não poderá ser desfeita.
+                </p>
+
+                <!-- Buttons -->
+                <div class="flex justify-center gap-4">
+                    <%= button_to polymorphic_path(record),
+                        method: :delete,
+                        class: "px-5 py-2.5 text-white bg-red-600 hover:bg-opacity-90 focus:ring-4 focus:ring-red-600/30 font-medium rounded-lg text-sm inline-flex items-center transition-colors duration-150 ease-in-out shadow-default" do %>
+                        <i class="fas fa-trash mr-2"></i>
+                        Sim, excluir
+                    <% end %>
+
+                    <button data-modal-hide="deleteModal-<%= record.id %>" 
+                        type="button" 
+                        class="px-5 py-2.5 text-body dark:text-bodydark bg-white dark:bg-boxdark hover:bg-gray-2 dark:hover:bg-meta-4 focus:ring-4 focus:ring-gray-2/50 dark:focus:ring-meta-4/50 font-medium rounded-lg text-sm inline-flex items-center transition-colors duration-150 ease-in-out shadow-default border border-stroke dark:border-strokedark">
+                        <i class="fas fa-times mr-2"></i>
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

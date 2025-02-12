@@ -1,0 +1,21 @@
+<% content_for :title, "Cities" %>
+
+<div class="w-full">
+  <% if notice.present? %>
+    <%= render "shared/flash" %>
+  <% end %>
+
+  <%= render_grid(
+    @cities,
+    {
+      codigo_ibge: { label: 'Codigo ibge' },
+      cidade: { label: 'Cidade' },
+      uf: { label: 'Uf' },
+    },
+    {
+      title: "Cidades",
+      search: true,
+      per_page: 20
+    }
+  ) %>
+</div>

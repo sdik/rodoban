@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :cities
+  resources :employees
   resources :clients
   get "dashboard/index"
   devise_for :users
@@ -11,6 +13,8 @@ Rails.application.routes.draw do
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  get 'cities/ajax/municipios', to: 'cities_ajax#municipios'
+  get 'cities/ajax/detalhes_municipio', to: 'cities_ajax#detalhes_municipio'
   root "home#index"
   get 'test', to: 'home#test'
   # Defines the root path route ("/")
