@@ -6,10 +6,6 @@ const theme = {
       off: "translate-x-0"
     },
     inner: "h-full overflow-y-auto overflow-x-hidden bg-gray-800 py-4 px-3",
-    collapsed: {
-      on: "hidden",
-      off: "block"
-    },
     list: "space-y-2 font-medium",
     item: {
       base: "flex items-center justify-between p-2 text-gray-300 hover:bg-gray-700 rounded-lg group",

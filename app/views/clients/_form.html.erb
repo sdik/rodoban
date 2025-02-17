@@ -6,9 +6,8 @@
   </div>
 
   <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-    <%= form_with(model: @client, local: true, class: "p-6.5") do |form| %>
-    <div data-controller="mask">
-      <% if @client.errors.any? %>
+    <%= form_with(model: @client, local: true, class: "p-6.5", data: { controller: "mascara" }) do |form| %>
+    <% if @client.errors.any? %>
         <div class="mb-4 rounded-lg border-l-6 border-[#F87171] bg-[#F87171] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30">
           <h5 class="mb-3 font-semibold text-[#B45454]">
             <%= pluralize(@client.errors.count, "erro") %> impediu que este cliente fosse salvo:
@@ -44,45 +43,15 @@
         <h3 class="mb-4 text-xl font-semibold text-black dark:text-white border-b pb-2">
           Documentos
         </h3>
-        <div class="mb-4.5">
-          <%= form.label :pessoa, class: "mb-2.5 block text-black dark:text-white" %>
-          <%= form.select :pessoa, 
-              options_for_select([['Física', 'F'], ['Jurídica', 'J']], @client.pessoa),
-              { include_blank: 'Selecione o tipo de pessoa' },
-              class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" %>
-        </div>
-
         <div class="flex flex-col gap-6 xl:flex-row">
-          <div class="w-full xl:w-1/2">
-            <%= form.label :cpf, class: "mb-2.5 block text-black dark:text-white" %>
-            <%= form.text_field :cpf, 
-                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary",
-                data: { 
-                  mask_target: "cpf",
-                  action: "input->mask#cpf"
-                } %>
-          </div>
-
-          <div class="w-full xl:w-1/2">
-            <%= form.label :rg, class: "mb-2.5 block text-black dark:text-white" %>
-            <%= form.text_field :rg, class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" %>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-6 xl:flex-row mt-4.5">
           <div class="w-full xl:w-1/2">
             <%= form.label :cnpj, class: "mb-2.5 block text-black dark:text-white" %>
             <%= form.text_field :cnpj, 
-                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary",
                 data: { 
-                  mask_target: "cnpj",
-                  action: "input->mask#cnpj"
-                } %>
-          </div>
-
-          <div class="w-full xl:w-1/2">
-            <%= form.label :ie, class: "mb-2.5 block text-black dark:text-white" %>
-            <%= form.text_field :ie, class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" %>
+                  mascara_target: "input",
+                  mask: "cnpj"
+                }, 
+                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" %>
           </div>
         </div>
       </div>
@@ -103,14 +72,14 @@
             <%= form.text_field :bairro, class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" %>
           </div>
 
-          <div class="w-full xl:w-1/2">
+          <div class="w-full xl:w-1/4">
             <%= form.label :cep, class: "mb-2.5 block text-black dark:text-white" %>
             <%= form.text_field :cep, 
-                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary",
                 data: { 
-                  mask_target: "cep",
-                  action: "input->mask#cep"
-                } %>
+                  mascara_target: "input",
+                  mask: "cep"
+                }, 
+                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" %>
           </div>
         </div>
 
@@ -243,33 +212,25 @@
         </h3>
         <div class="flex flex-col gap-6 xl:flex-row">
           <div class="w-full xl:w-1/3">
-            <%= form.label :fone1, class: "mb-2.5 block text-black dark:text-white" %>
-            <%= form.text_field :fone1, 
-                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary",
+            <%= form.label :telefone, class: "mb-2.5 block text-black dark:text-white" %>
+            <%= form.text_field :telefone, 
                 data: { 
-                  mask_target: "telefone",
-                  action: "input->mask#telefone"
-                } %>
+                  mascara_target: "input",
+                  mask: "telefone"
+                }, 
+                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" %>
           </div>
 
           <div class="w-full xl:w-1/3">
             <%= form.label :fone2, class: "mb-2.5 block text-black dark:text-white" %>
             <%= form.text_field :fone2, 
-                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary",
-                data: { 
-                  mask_target: "telefone",
-                  action: "input->mask#telefone"
-                } %>
+                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" %>
           </div>
 
           <div class="w-full xl:w-1/3">
             <%= form.label :celular, class: "mb-2.5 block text-black dark:text-white" %>
             <%= form.text_field :celular, 
-                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary",
-                data: { 
-                  mask_target: "telefone",
-                  action: "input->mask#telefone"
-                } %>
+                class: "w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary" %>
           </div>
         </div>
 

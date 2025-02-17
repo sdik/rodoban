@@ -16,15 +16,18 @@
   <link rel="icon" href="/icon.png" type="image/png">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/icon.png">
+  
   <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
 </head>
 
 <body class="bg-gray-50">
+  <div data-controller="teste"></div>
   <%= render "shared/flash" %>
   <%= render "shared/navbar" %>
   <!-- Sidebar -->
@@ -37,6 +40,6 @@
   </div>
 
   <!-- Flowbite JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js" type="module"></script>
 </body>
 </html>

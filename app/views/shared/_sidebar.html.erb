@@ -51,6 +51,27 @@
                </li>
             </ul>
          </li>
+
+
+         <!-- Outros -->
+         <li>
+            <button type="button" class="flex items-center w-full p-3 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-blue-50" aria-controls="dropdown-outros" data-collapse-toggle="dropdown-outros">
+               <div class="flex-shrink-0 w-5 h-5 text-blue-500 transition duration-75 group-hover:text-blue-600">
+                  <i class="fas fa-boxes"></i>
+               </div>
+               <span class="flex-1 ms-3 text-left whitespace-nowrap font-medium">Outros</span>
+               <i class="fas fa-chevron-down w-3 h-3 text-gray-500 transition duration-75 group-hover:text-blue-600"></i>
+            </button>
+            <ul id="dropdown-outros" class="py-2 space-y-1">
+               <li>
+                  <%= link_to cities_path, class: "flex items-center w-full p-2 text-gray-700 transition duration-75 rounded-lg pl-11 group hover:bg-blue-50 #{current_page?(cities_path) ? 'bg-blue-50 text-blue-600' : ''}" do %>
+                     <span class="font-medium">Cidades/Estados</span>
+                  <% end %>
+               </li>
+            </ul>
+         </li>
+
+
       </ul>
    </div>
 </aside>
